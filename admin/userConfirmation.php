@@ -94,10 +94,10 @@
                                  
                                     <th>Start Date</th>
                                     <th>End Date</th>
-                                    <!-- <th>Seat</th> -->
                                     <th>cost</th>
                                     <th>Seat</th>
                                     <th>Status</th>
+                                    <th></th>
                                     <th>Action</th>
                                 </tr>
                             </thead>

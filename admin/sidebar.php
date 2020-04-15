@@ -26,8 +26,8 @@
                 </li>
 
                 <?php 
-                $stmt = $pdo->prepare('select * from user where id = :aUserId'); 
-                $stmt->execute($_SESSION);
+                $stmt = $pdo->prepare('select * from user where id = :id'); 
+                $stmt->execute(['id' => $_SESSION['aUserId']]);
                 $user = $stmt->fetch();
                 if($user['type'] == 1){?>
                     <li class="nav-item">
