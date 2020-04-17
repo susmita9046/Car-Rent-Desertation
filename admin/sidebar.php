@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="userConfirmation.php">
+                    <a class="nav-link" href="userDetails.php">
                         <i class="fas fas fa-car"></i>&nbsp;
                          Customers Details
                     </a>
