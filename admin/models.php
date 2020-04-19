@@ -24,26 +24,24 @@
     }
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Manage Car Models</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">         
-
-    
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <style type="text/css"></style>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-        
 </head>
 <body>
-
 <div class="container">
     <?php require 'sidebar.php';?>
-
-<div id="mid-content">
+<div id="mid-content" class="col-md-9">
+    <div class ="col-md-5 form-group ml-auto">
+      <form method="post" action="">
+        <input class="form-control" type="text" name="keyword" placeholder="Search Here">
+      </form>
+    </div>
     <div class="container">
         <div class="col-md-12">
 
@@ -78,13 +76,11 @@
                                 </td>
                             </tr>
                         <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
-
-
+</div>
 </div>
 </body>
 </html>

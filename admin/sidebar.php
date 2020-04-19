@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row back-container">
         
-    <div class = "col-md-4">                    
-          <nav id="Sidebar">
+    <div class = "col-md-3" id="Sidebar"">                    
+        <nav>
             <div class="Sidebar-header">
                 <h2 class="text-center">
                     <i class="fas fa-tachometer-alt"></i>
@@ -10,18 +10,11 @@
                 </h2>
             </div>
 
-            <ul class="nav nav-tabs list-unstyled components" style="display: inline-block;">
+            <ul class="nav nav-tabs list-unstyled components" style="display: block;">
                 <li class="nav-item">
                         <a class="nav-link" href="index.php">
                            <i class="fas fas fa-home"></i>  &nbsp;
                             Home
-                        </a> 
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" href="index.php">
-                           <i class="fas fas fa-home"></i>  &nbsp;
-                            Activity Log
                         </a> 
                 </li>
 
@@ -82,8 +75,6 @@
                       
                     </a>
                 </li>
-
             </ul>
-    </nav>
-
-</div>
+        </nav>
+    </div>

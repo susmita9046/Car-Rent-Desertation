@@ -45,17 +45,17 @@
             Sidebar STYLE
             ----------------------------------------------------- */
             #Sidebar {
-                width: 250px;
-                top: 0;
-                left: 0;
+                /*width: 20%;*/
+               /* top: 0;
+                left: 0;*/
                 background: #c5c0b7;
                 transition: all 0.3s;
-                position: fixed;
+                /*position: fixed;*/
                 z-index: 997;
                 
                 color: #fff;
                 height: 102vh;
-                box-shadow:0px 0px 6px #442;
+                box-shadow:0px 0px 6px #442; padding: 0;
                 
                 
             }
@@ -75,7 +75,7 @@
             }
 
             #Sidebar ul.components {
-                padding: 19px 1;
+                padding: 19px 1; margin-left: 5%;
             }
 
             #Sidebar ul li a {
@@ -127,7 +127,7 @@
             ----------------------------------------------------- */
             #mid-content {
                 right: 0;
-                padding: 42px;
+                padding: 2% 0;
                 min-height: 100vh;
                 transition: all 0.3s;
                 

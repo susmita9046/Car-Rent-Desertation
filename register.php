@@ -4,12 +4,14 @@ require 'db/connect.php';
 $error='';
 if(isset($_POST['Submit'])){
     
-    $regis = $pdo->prepare("INSERT INTO user(username,email,password,citizenship_no,type) VALUES (:username,:email,:password,:citizenship_no,:type)");
+    $regis = $pdo->prepare("INSERT INTO user(username,email,password,citizenship_no,location,Phone_Number,type) VALUES (:username,:email,:password,:citizenship_no,:location,:Phone_Number,:type)");
          $criteria = [
             'username'=> $_POST['username'],
             'email'  => $_POST['email'],
             'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'citizenship_no'=> $_POST['citizenship_no'],
+            'location' => $_POST['location'],
+            'Phone_Number' => $_POST['Phone_Number'],
             'type' => 0
           ];
         
@@ -87,10 +89,10 @@ Arena Car
                        <li><a href="contact.php" >CONTACT</a></li>
                        <li><a href="faq.php" >FAQ</a></li>
                     
-                         <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
+                        <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
 
 
-                         <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
+                        <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
 
                  
                  </ul>
@@ -144,6 +146,20 @@ Arena Car
     <label for="citizenship_no" class="col-md-4 col-form-label text-md-right">Citizenship Number</label>
 <div class="col-md-6">
     <input id="citizenship_no" type="text" class="form-control" name="citizenship_no" >
+</div>
+</div>
+
+<div class="form-group row">
+    <label for="location" class="col-md-4 col-form-label text-md-right">Location</label>
+<div class="col-md-6">
+    <input id="location" type="text" class="form-control" name="location" >
+</div>
+</div>
+
+<div class="form-group row">
+    <label for="Phone_Number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+<div class="col-md-6">
+    <input id="Phone_Number" type="text" class="form-control" name="Phone_Number" >
 </div>
 </div>
 <hr>

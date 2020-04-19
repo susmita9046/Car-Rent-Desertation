@@ -5,6 +5,27 @@
     }
 
     require '../db/connect.php';
+
+    $admins = $pdo->prepare('select * from user where type = 2');
+    $admins->execute();
+    $adminCount = $admins->rowCount();
+
+    $models = $pdo->prepare('select * from model');
+    $models->execute();
+    $modelCount = $models->rowCount();
+
+    $cars = $pdo->prepare('select * from car');
+    $cars->execute();
+    $carCount = $cars->rowCount();
+
+    $customers = $pdo->prepare('select * from user where type = 0');
+    $customers->execute();
+    $customerCount = $customers->rowCount();
+
+    $bookings = $pdo->prepare('select * from rent_car');
+    $bookings->execute();
+    $bookingCount = $bookings->rowCount();
+
 ?>
     <!DOCTYPE html>
     <html>
@@ -20,6 +41,51 @@
     </head>
     <body>
         <?php require 'sidebar.php'; ?>
+
+            <div class="col-md-9">
+                <h3 class="report-title">Admin Content Detail</h3>
+                <div class="report">
+                    <?php if($user['type'] == 1){?>
+                        <div>
+                            <a href="">
+                                <i class="fas fas fa-user"></i><br>
+                                <span>Admin Users : <?php echo $adminCount; ?></span>
+                            </a>
+                        </div>
+                    <?php }?>
+                    <div>
+                        <a href="">
+                            <i class="fas fas fa-car"></i><br>
+                            <span>Car Models : <?php echo $modelCount; ?></span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <i class="fas fas fa-car"></i><br>
+                            <span>Cars : <?php echo $carCount; ?></span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <i class="fas fas fa-home"></i><br>
+                            <span>Customers : <?php echo $customerCount; ?></span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <i class="fas fas fa-home"></i><br>
+                            <span>Bookings : <?php echo $bookingCount; ?></span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <i class="fas fas fa-home"></i><br>
+                            <span>Enquiries : 5</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Sidebar Holder  ends here-->
 

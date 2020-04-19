@@ -57,7 +57,7 @@
 <body>
 <div class="container">
     <?php require 'sidebar.php';?>
-    <div id="mid-content">
+    <div id="mid-content" class="col-md-9">
     <div class="container">
         <div class="col-md-12">
              <?php if(isset($_GET['success'])){?>

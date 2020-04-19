@@ -25,14 +25,16 @@
     <style type="text/css"></style>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-        
 </head>
 <body>
-
 <div class="container">
     <?php require 'sidebar.php';?>
-
-<div id="mid-content">
+<div id="mid-content" class="col-md-9">
+    <div class ="col-md-5 form-group ml-auto">
+      <form method="post" action="">
+        <input class="form-control" type="text" name="keyword" placeholder="Search Here">
+      </form>
+    </div>
     <div class="container">
         <div class="col-md-12">
             <div class="tab-content" id="myTabContent">
@@ -45,6 +47,8 @@
                             <th>username</th>
                             <th>email</th>
                             <th>Citizenship Number</th>
+                            <th>Location</th>
+                            <th>Phone Number</th>
                             <th>Action</th>
                         </tr>
                         
@@ -54,6 +58,8 @@
                                 <td><?php echo $user['username'] ?></td>
                                 <td><?php echo $user['email'] ?></td>
                                 <td><?php echo $user['citizenship_no'] ?></td>
+                                <td><?php echo $user['location'] ?></td>
+                                <td><?php echo $user['Phone_Number'] ?></td>
                                 </td>
                                 
                                 <td>
@@ -67,8 +73,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>

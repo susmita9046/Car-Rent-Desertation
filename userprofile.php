@@ -119,7 +119,10 @@ ArenaCar
         <li><a href="carlist.php" >CAR LIST</a></li>
         <li class=" nav-item dropdown">
             <a href="userprofile.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                <i class="fas fa-user">USER</i>  
+                <i class="fas fa-user">USER
+
+                </i> 
+
             </a>
     <ul class="dropdown-menu li-padding" role="menu">
         <li>
@@ -163,9 +166,7 @@ ArenaCar
 </form>
 
 </div>
-
-
-  <div class = "container">
+<div class = "container">
     <div class = "row">
       <div class = "col-md-12">
         <div class = "row">

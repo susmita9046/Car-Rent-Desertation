@@ -1,6 +1,7 @@
 body
 {
 	background-image: whitesmoke;
+  /*display: flex;*/
 
 }
 
@@ -198,3 +199,29 @@ dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
 
 /*test for dashboard*/
 
+
+.back-container{ display: flex; }
+/*.main{
+  width: 71%; margin : 1%; padding: 1%; background-color: red;
+}*/
+
+
+.container{ max-width: 100%; }
+.report{
+  padding: 1%; background-color: #e2d0d0; margin: 1% 1% 1% 0; display: flex; flex-wrap: wrap;
+}
+
+.report-title{ text-align: center;width: 100%; padding: 1%; background-color: #3f4269; color: white }
+.report div{
+  width: 31%; margin: 1%; background-color: white; text-align: center; color: #3f4269;
+  font-weight: bold; font-size: 25px; transition: transform 2s;
+}
+.report div i{
+  font-size: 50px; color: black;
+}
+.report div a{
+  padding: 13% 0; display: block; width: 100%;
+}
+.report div:hover{
+  background-color: tomato; transform : rotate(360deg);
+}
