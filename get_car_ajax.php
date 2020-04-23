@@ -37,10 +37,15 @@
             <td>Price/day:</td>
             <td><?php echo $car['cost'];?></td>
         </tr>
+
+        <tr>
+            <td>Stock:</td>
+            <td><?php echo $car['stock'];?></td>
+        </tr>
       </table>
     </div>
     <div class="modal-footer">
-      <a href="userprofile.php" class="btn-primary btn" onclick="">
+      <a href="userprofile.php" class="btn-primary btn <?php if($car['stock'] == 0) echo 'disabled' ?>" onclick="">
         <i class="far fa-clock"></i> Rent Car
       </a>            
       <button type="button" class="btn btn-danger" id="close" data-dismiss="modal">Close</button>

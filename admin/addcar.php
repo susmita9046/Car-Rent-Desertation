@@ -21,7 +21,7 @@ session_start();
         }
 
         $stmt = $pdo->prepare("insert into 
-                    car(modelId,cost,production_year,plate_number,image,fuelType,engine_capacity,seat,status,userId) values(:modelId, :cost, :production_year, :plate_number, :image, :fuelType, :engine_capacity, :seat, :status, :userId)");
+                    car(modelId,cost,production_year,plate_number,image,fuelType,engine_capacity,seat,stock,status,userId) values(:modelId, :cost, :production_year, :plate_number, :image, :fuelType, :engine_capacity, :seat,:stock,:status, :userId)");
         $_POST['userId']= $_SESSION['aUserId'];
         unset($_POST['save']);
         $_POST['image'] = $image;
@@ -50,9 +50,10 @@ session_start();
 <body>
 
 <div class="container">
+
 <?php require 'sidebar.php'; ?>    
 
-<div id="mid-content" style="padding:2% 0%">
+<div id="mid-content" class="col-md-9" style="padding:2% 0%">
         <div class="container">
             <div class="col-md-12">
                 <div class="tab-content" id="myTabContent">
@@ -141,10 +142,20 @@ session_start();
                             </div>
 
                             <div class="form-group">
-                                <label for="seats" class="col-md-4 control-label">Seats:</label>
+                                <label for="seats" class="col-md-4 control-label">Seats</label>
 
                                 <div class="col-md-6">
                                     <input  type="number" class="form-control grey-glow" name="seat" value=""/>
+
+                                  
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label for="seats" class="col-md-4 control-label">Stock</label>
+
+                                <div class="col-md-6">
+                                    <input  type="number" class="form-control grey-glow" name="stock">
 
                                   
                                 </div>

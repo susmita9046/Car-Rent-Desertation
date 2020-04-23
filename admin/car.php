@@ -95,10 +95,11 @@
                                     <th>username</th>
                                     <th>cost</th>
                                     <th>Production Year</th>
-                                    <th>Plate Number</th>
+                                    <th>Plate No.</th>
                                     <th>Fuel</th>
                                     <th>Engine Capacity</th>
                                     <th>Seat</th>
+                                    <th>Stock</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -116,7 +117,9 @@
                                         <td><?php echo $car['fuelType'] ?></td>
                                         <td><?php echo $car['engine_capacity'] ?></td>
                                         <td><?php echo $car['seat'] ?></td>
+                                        <td><?php echo $car['stock'] ?></td>
                                         <td><?php echo $car['status'] ?></td>
+                                        <td></td>
                                         <td>
                                             <a href="editcar.php?eid=<?php echo $car['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-edit"></i></a>
                                             

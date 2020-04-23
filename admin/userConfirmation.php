@@ -8,7 +8,8 @@
     require '../db/connect.php';
         
     if(isset($_GET['eid'])){
-        $rent = $pdo->prepare('SELECT * FROM rent_car WHERE id = :eid');
+        $rent = $pdo->prepare('SELECT rent_car.*, car.stock FROM rent_car 
+                inner join car on rent_car.car_id = car.id WHERE rent_car.id = :eid');
         $rent->execute($_GET);
         $row = $rent->fetch();
         // print_r($row['status']); die();
@@ -25,12 +26,45 @@
             'id' => $_GET['eid']
         ];
         $stmt->execute($criteria);
-        echo 'Rent Status Updated Successfully';
+
+        // update stock of car
+            $stmt = $pdo->prepare('UPDATE car SET stock = :stock WHERE id = :id');
+            $criteria = [
+                'stock' => $row['stock'] - 1,
+                'id' => $row['car_id']
+            ];
+            $stmt->execute($criteria);
+        // update stock of car
+
+
+
+        header('Location:userConfirmation.php?msg=Rent Status Updated Successfully');
+    }
+
+    if(isset($_GET['cid'])){
+         $rent = $pdo->prepare('SELECT rent_car.*, car.stock FROM rent_car 
+                inner join car on rent_car.car_id = car.id WHERE rent_car.id = :cid');
+        $rent->execute($_GET);
+        $row = $rent->fetch();
+
+        // die($row['car_id']);
+        $stmt = $pdo->prepare('update rent_car set complete = 1');
+        $stmt->execute();
+
+        $stmt = $pdo->prepare('update car set stock = :stock where id = :id');
+        $criteria = [
+            'stock' => $row['stock'] + 1,
+            'id' => $row['car_id']
+        ];
+        $stmt->execute($criteria);
+
+        header('Location:userConfirmation.php?msg=Rent Completed Successfully');
     }
 
     $rent_car = $pdo->prepare("SELECT 
                                     rent_car.*, 
                                     car.seat as seat, 
+                                    car.stock as stock, 
                                     model.name as modelName,
                                     user.username as userName 
                             FROM rent_car 
@@ -81,6 +115,9 @@
                                     
                                 </li>
                             </ul></div>
+                            <?php if(isset($_GET['msg'])){
+                                echo '<p style="color:red">'.$_GET['msg'].'</p>';
+                            }?>
                             <br><br>
                             <!-- search  -->
                             <div class=" col-md-5 form-group ml-auto">
@@ -96,6 +133,7 @@
                                     <th>End Date</th>
                                     <th>cost</th>
                                     <th>Seat</th>
+                                    <th>Stock</th>
                                     <th>Status</th>
                                     <th></th>
                                     <th>Action</th>
@@ -113,6 +151,7 @@
                                         <td><?php echo $rent['rent_end'] ?></td>
                                         <td><?php echo $rent['cost'] ?></td>
                                         <td><?php echo $rent['seat'] ?></td>
+                                        <td><?php echo $rent['stock'] ?></td>
                                         <td>
                                             <?php 
                                                 if($rent['status'] == 0){
@@ -128,9 +167,15 @@
                                        
                                         
                                         <td>
-                                            <a href="userConfirmation.php?eid=<?php echo $rent['id'];?>" class="btn btn-sm btn-icon btn-primary">Confirm</a>
+                                            <?php if($rent['status'] == 0){?>
+                                                <a href="userConfirmation.php?eid=<?php echo $rent['id'];?>" class="btn btn-sm btn-icon btn-primary">Confirm</a>
+                                            <?php }?>
                                             
                                             <a href="car.php?did=<?php echo $rent['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
+
+                                            <?php if($rent['status'] == 1 && $rent['complete'] == 0){?>
+                                                <a href="userConfirmation.php?cid=<?php echo $rent['id'];?>" class="btn btn-sm btn-icon btn-primary">Complete</a>
+                                            <?php }?>
                                         </td>
                                     </tr>
                              <?php }?>

@@ -188,14 +188,18 @@ ArenaCar
                               <td>Status:</td>                                
                               <td><?php echo $car['status'];?></td>
                           </tr>
+                          <tr>
+                              <td>Stock:</td>                                
+                              <td><?php echo $car['stock'];?></td>
+                          </tr>
                         </table>
                         <div class="text-center">
                            <!--  <button class="btn viewbtn"  data-toggle="modal" data-target="#exampleModalScrollable">
                                 VIEW MORE
                             </button>
 
- -->                      <a href="rentcar.php?carId=<?php echo $car['id'] ?>" class="btn-primary btn"
-                                       onclick="">
+ -->                      
+                          <a href="rentcar.php?carId=<?php echo $car['id'] ?>" class="btn-primary btn <?php if($car['stock'] == 0) echo 'disabled' ?>" onclick="">
                             <i class="far fa-clock"></i> 
                                       Rent Car
                           </a>

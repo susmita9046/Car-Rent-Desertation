@@ -136,6 +136,10 @@
                             <td><?php echo $car['production_year'];?></td>
                         </tr>
                         <tr>
+                            <td>Stock:</td>
+                            <td><?php echo $car['stock'];?></td>
+                        </tr>
+                        <tr>
                             <td>Status:</td>                                
                             <td><?php echo $car['status'];?></td>
                         </tr>

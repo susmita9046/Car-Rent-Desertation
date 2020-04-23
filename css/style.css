@@ -225,3 +225,9 @@ dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
 .report div:hover{
   background-color: tomato; transform : rotate(360deg);
 }
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.5;
+  /*background: #CCC;*/
+}

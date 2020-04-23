@@ -25,6 +25,7 @@
         						fuelType = :fuelType, 
         						engine_capacity = :engine_capacity, 
         						seat = :seat, 
+                                stock =:stock,
         						status = :status 
         					WHERE 
         					id = :id"
@@ -54,7 +55,7 @@
 <div class="container">
 <?php require 'sidebar.php'; ?>    
 
-<div id="mid-content" style="padding:2% 0%">
+<div id="mid-content" class="col-md-9" style="padding:2% 0%">
         <div class="container">
             <div class="col-md-12">
                 <div class="tab-content" id="myTabContent">
@@ -147,7 +148,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="seats" class="col-md-4 control-label">Seats:</label>
+                                <label for="seats" class="col-md-4 control-label">Seats</label>
 
                                 <div class="col-md-6">
                                     <input  type="number" class="form-control grey-glow" name="seat" 
@@ -155,9 +156,18 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="stock" class="col-md-4 control-label">Stock</label>
+
+                                <div class="col-md-6">
+                                    <input  type="number" class="form-control grey-glow" name="stock" 
+                                    value="<?php echo $row['stock'];?>"/>
+                                </div>
+                            </div>
+
                              <div class="form-group">
                                 <label for="status" class="col-md-1 control-label">Status</label> 
-                                <input  type="radio" name="status" value="Yes" checke /> Yes 
+                                <input  type="radio" name="status" value="Yes" checked /> Yes 
                                 <input  type="radio" name="status" value="No" <?php if('No' == $row['status']) echo 'checked' ?>/> No 
                             </div>
 
