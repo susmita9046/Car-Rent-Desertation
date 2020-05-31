@@ -4,7 +4,16 @@ require 'db/connect.php';
 $error='';
 if(isset($_POST['Submit'])){
     
-    $regis = $pdo->prepare("INSERT INTO user(username,email,password,citizenship_no,location,Phone_Number,type) VALUES (:username,:email,:password,:citizenship_no,:location,:Phone_Number,:type)");
+    $user = $pdo->prepare('select * from user where email = :email');
+    $criteria = [
+        'email' => $_POST['email']
+    ];
+    $user->execute($criteria);
+    if($user->rowCount() > 0){
+        $emailError = 'Supplied email already exists';
+    }
+    else{
+        $regis = $pdo->prepare("INSERT INTO user(username,email,password,citizenship_no,location,Phone_Number,type) VALUES (:username,:email,:password,:citizenship_no,:location,:Phone_Number,:type)");
          $criteria = [
             'username'=> $_POST['username'],
             'email'  => $_POST['email'],
@@ -21,7 +30,8 @@ if(isset($_POST['Submit'])){
         }
         else{
             echo 'Not registered';
-        } 
+        }
+    } 
 }
 ?>
 <!DOCTYPE html>
@@ -32,37 +42,78 @@ if(isset($_POST['Submit'])){
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="./css/fnavbar.css">
-    
+<style type="text/css">
+    .red{
+        color: red;
+    }
+</style>
    <script type="text/javascript">
         function validate(form){
-            if(form.username.value == ''){
-                alert('Please enter username');
+            var letters = /^[A-Za-z]+$/;
+            if(form.username.value == '' || !form.username.value.match(letters)){
+                // document.getElementById('error-name').innerHTML = 'Invalid Name';
                 form.username.focus();
+                document.getElementById('username-error').innerHTML = 'Invalid name';
                 return false;
             }
+
             if(form.email.value == ''){
-                alert('Please enter email');
+                // alert('Please enter email');
+                document.getElementById('email-error').innerHTML = 'Please enter email';
                 form.email.focus();
                 return false;
             }
             if(form.password.value == ''){
-                alert('Please enter password');
+                // alert('Please enter password');
+                document.getElementById('password-error').innerHTML = 'Please enter password';
                 form.password.focus();
                 return false;
             }
             if(form.password_confirm.value == ''){
-                alert('Please enter password again');
+                // alert('Please enter password again');
+                document.getElementById('password_confirm-error').innerHTML = 'Please enter password';
                 form.password_confirm.focus();
                 return false;
             }
             if(form.password.value != form.password_confirm.value){
-                alert('Password and confirm password do not match');
+                // alert('Password and confirm password do not match');
+                document.getElementById('pw-error').innerHTML = 'Please enter correct password ';
                 form.password_confirm.focus();
                 return false;
             }  
-             if(form.citizenship_no.value == ''){
-                alert('Please enter citizenship_no');
+            if(form.password.value.length < 6 || form.password_confirm.value.length < 6){
+                document.getElementById('pw-error').innerHTML = 'Password must be atleaset 6 characters';
+                form.password_confirm.focus();
+                return false;
+            }
+            // if(form.citizenship_no.value == ''){
+            //     // alert('Please enter citizenship_no');
+            //     document.getElementById('Citizenship-error').innerHTML = 'Please enter Citizenship no';
+            //     form.citizenship_no.focus();
+            //     return false;
+            // }
+
+            var number = /^[0-9]+$/;
+             if(form.citizenship_no.value == '' || !form.citizenship_no.value.match(number) || form.citizenship_no.value.length != 5){
+            // if(!form.citizenship_no.value.match(number)){
+                // document.getElementById('error-name').innerHTML = 'Invalid Name';
                 form.citizenship_no.focus();
+                document.getElementById('Citizenship-error').innerHTML = 'Invalid citizenship number';
+                return false;
+            }
+
+            if(form.location.value == ''){
+                // alert('Please enter citizenship_no');
+                document.getElementById('location-error').innerHTML = 'Please enter Citizenship no';
+                form.location.focus();
+                return false;
+            }
+
+            var number = /^[0-9]+$/;
+            if(form.Phone_Number.value == '' || !form.Phone_Number.value.match(number) || form.Phone_Number.value.length != 10){
+                // document.getElementById('error-name').innerHTML = 'Invalid Name';
+                form.Phone_Number.focus();
+                document.getElementById('Phone-error').innerHTML = 'Invalid Phone number';
                 return false;
             }
         }
@@ -84,15 +135,15 @@ Arena Car
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
  <ul class="nav navbar-nav ml-auto">
-                     <li><a href="home.php" >HOME</a></li>
+                    <li><a href="home.php" >HOME</a></li>
                      <!-- Authentication Links -->
-                       <li><a href="contact.php" >CONTACT</a></li>
-                       <li><a href="faq.php" >FAQ</a></li>
+                    <li><a href="contact.php" >CONTACT</a></li>
+                    <li><a href="faq.php" >FAQ</a></li>
                     
-                        <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
+                    <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
 
 
-                        <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
+                    <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
 
                  
                  </ul>
@@ -120,6 +171,7 @@ Arena Car
 <label for="username" class="col-md-4 col-form-label text-md-right">Name</label>
     <div class="col-md-6">
         <input id="username" type="text" class="form-control" name="username" value=""  autocomplete="name" autofocus>
+        <span id="username-error" class="red"></span>
     </div>
 </div>
 
@@ -127,12 +179,16 @@ Arena Car
     <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
         <div class="col-md-6">
             <input id="email" type="email" class="form-control " name="email" value="" autocomplete="email">
+            <span id="email-error" class="red">
+                <?php if(!empty($emailError)) echo $emailError; ?>
+            </span>
         </div>
 </div>
 <div class="form-group row">
     <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
     <div class="col-md-6">
         <input id="password" type="password" class="form-control" name="password" autocomplete="new-password">
+        <span id="password-error" class="red"></span>
     </div>
 </div>
 <div class="form-group row">
@@ -140,6 +196,7 @@ Arena Car
     <div class="col-md-6">
         <input id="confirm_password" type="password" class="form-control" name="password_confirm" autocomplete="new-password">
      </div>
+     <span id="pw-error" class="red"></span>
 </div>
 
 <div class="form-group row">
@@ -147,6 +204,7 @@ Arena Car
 <div class="col-md-6">
     <input id="citizenship_no" type="text" class="form-control" name="citizenship_no" >
 </div>
+ <span id="Citizenship-error" class="red"></span>
 </div>
 
 <div class="form-group row">
@@ -154,6 +212,7 @@ Arena Car
 <div class="col-md-6">
     <input id="location" type="text" class="form-control" name="location" >
 </div>
+<span id="location-error" class="red"></span>
 </div>
 
 <div class="form-group row">
@@ -161,6 +220,7 @@ Arena Car
 <div class="col-md-6">
     <input id="Phone_Number" type="text" class="form-control" name="Phone_Number" >
 </div>
+<span id="Phone-error" class="red"></span>
 </div>
 <hr>
 <div class="form-group row mb-0">

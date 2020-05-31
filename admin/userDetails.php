@@ -4,9 +4,7 @@
     if(!isset($_SESSION['aUserId'])){
         header('Location:login.php');
     }
-
     require '../db/connect.php';
-
     $User = $pdo->prepare("select * from user where type = 0 order by type asc");
     $User->execute();
 

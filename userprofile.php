@@ -9,6 +9,10 @@
 
 <?php
   require 'db/connect.php';
+  // $stmt = $pdo->prepare('SELECT * FROM user WHERE username = :username 
+    //   FROM user 
+    //   JOIN user on user.userId = user.id');
+    // $_SESSION['UserId'] = $user['id'];
     $cars = $pdo->prepare("SELECT car.*, model.name as modelName 
                             FROM 
                               car JOIN model ON car.modelId = model.id 

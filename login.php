@@ -88,15 +88,13 @@ Arena Car
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
  <ul class="nav navbar-nav ml-auto">
-                     <li><a href="home.php" >HOME</a></li>
+                    <li><a href="home.php" >HOME</a></li>
                      <!-- Authentication Links -->
-                          <li><a href="contact.php" >CONTACT</a></li>
-                       <li><a href="faq.php" >FAQ</a></li>
+                    <li><a href="contact.php" >CONTACT</a></li>
+                    <li><a href="faq.php" >FAQ</a></li>
 
-                         <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
-
-
-                         <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
+                    <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
+                    <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
 
        			 
                  </ul>
