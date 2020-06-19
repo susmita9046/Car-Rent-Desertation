@@ -36,7 +36,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="./css/fnavbar.css">
-
 <script type="text/javascript">
         function validate(form){
             if(form.username.value == ''){
@@ -71,7 +70,6 @@
             }
         }
    </script>
-	
 </head>
 <body>
 	 <div class="full-height" id="app">
@@ -86,28 +84,22 @@ Arena Car
 </button>
 
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
- <ul class="nav navbar-nav ml-auto">
-                    <li><a href="home.php" >HOME</a></li>
-                     <!-- Authentication Links -->
-                    <li><a href="contact.php" >CONTACT</a></li>
-                    <li><a href="faq.php" >FAQ</a></li>
-
-                    <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
-                    <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
-
-       			 
-                 </ul>
+        <ul class="nav navbar-nav ml-auto">
+            <li><a href="home.php" >HOME</a></li>
+            <li><a href="contact.php" >CONTACT</a></li>
+            <li><a href="faq.php" >FAQ</a></li>
+            <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
+            <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
+        </ul>
 
 </div>
 </nav>
-            <BR>
-            <BR>
-            <BR>      
-       
-       <div class="container">
+<BR>
+<BR>
+<BR>      
+<div class="container">
     <div class="row">
-         <div class = "col-md-6">
+        <div class = "col-md-6">
             <a class="navbar-brand text-center" href="/">
             <img src="images/logocar.png"  width="100%"alt="car-logo"  class="" alt="Car image is here">
 
@@ -117,7 +109,7 @@ Arena Car
         </div>
 
         <div class="col-md-6 login-form"> 
-            <h1 class = "text-center" style = "">Login</h1>
+            <h1 class = "text-center">Login</h1>
             <hr>
         <div class = "loglog" >
                     <form class="form-horizontal" method="POST" action="" onsubmit="return validate(this)">
@@ -173,12 +165,8 @@ Arena Car
         </div>
     </div>
 </div>         
-        
-     </div>
-
 <br>
 <br>
-
 <div class="container-fluid foot">
     <div class="text-center">
         <a href="#" class="foota">About</a>

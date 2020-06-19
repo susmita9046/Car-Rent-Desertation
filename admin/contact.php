@@ -4,14 +4,11 @@
     if(!isset($_SESSION['aUserId'])){
         header('Location:login.php');
     }
-
     require '../db/connect.php';
+    $contac = $pdo->prepare("select * from contact");
+    $contac->execute();
 
-    // $users = $pdo->prepare("select * from user where type=:type");
-    // $criteria = [
-    //     'type' => 1
-    // ];
-    // $users->execute($criteria);
+
  ?> 
 
 <!DOCTYPE html>
@@ -31,29 +28,38 @@
 
 <div class="container">
     <?php require 'sidebar.php';?>
-<div id="mid-content">
+<div id="mid-content" class="col-md-9">
     <div class="container">
         <div class="col-md-12">
             <div class="tab-content" id="myTabContent">
                 <div class=" col-md-5 form-group ml-auto" style="margin-left: 0 !important;">
-                    <a class="nav-link ser-link" href="adduser.php"><i class="fas fas fa-car"></i>&nbsp; Add User  </a>
+                <h4>Manage Contact</h4>
                 </div>
                 <table class="table table-hover">
                             <thead>
                                 <tr class="text-info">
+                                    <th>S.N</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Subject</th>
                                     <th>Message</th>
                                     <th>Status</th>
                                    
                                 </tr>
                             </thead>
+                                <?php $i = 1; ?>
+                                <?php foreach ($contac as $contacts) {?>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr></tbody>
+                                    <td><?php echo $i++; ?></td>
+                                    <td><?php echo $contacts['name'] ?></td>
+                                    <td><?php echo $contacts['email'] ?></td>
+                                    <td><?php echo $contacts['number'] ?></td>
+                                    <td><?php echo $contacts['subject'] ?></td>
+                                    <td><?php echo $contacts['message'] ?></td>
+                                </tr>
+                                 <?php } ?>
+                            </tbody>
                 </table>
                 </div>
             </div>

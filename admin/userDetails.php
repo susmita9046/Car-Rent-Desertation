@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     if(!isset($_SESSION['aUserId'])){
         header('Location:login.php');
     }

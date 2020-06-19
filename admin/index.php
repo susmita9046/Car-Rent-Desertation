@@ -25,6 +25,10 @@
     $bookings = $pdo->prepare('select * from rent_car');
     $bookings->execute();
     $bookingCount = $bookings->rowCount();
+    
+    $contacts = $pdo->prepare('select * from contact');
+    $contacts->execute();
+    $ContactCount = $contacts->rowCount();
 
 ?>
     <!DOCTYPE html>
@@ -78,9 +82,9 @@
                         </a>
                     </div>
                     <div>
-                        <a href="">
+                        <a href="contact.php">
                             <i class="fas fas fa-home"></i><br>
-                            <span>Enquiries : 5</span>
+                            <span>Contact :<?php echo $ContactCount; ?></span>
                         </a>
                     </div>
                 </div>

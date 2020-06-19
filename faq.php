@@ -1,3 +1,20 @@
+<?php
+session_start();
+require 'db/connect.php';
+$enquiry = $pdo->prepare('SELECT * FROM faq');
+$enquiry->execute();
+
+if(isset($_POST['save'])){
+        $stmt = $pdo->prepare("insert into 
+                faq(enquiry) values(:enquiry)");
+       
+        unset($_POST['save']);
+          // echo '<pre>'; print_r($_POST); die();
+        $stmt->execute($_POST);
+        header('Location:faq.php?success=enquiry Added Successfully');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,44 +82,24 @@ Arena Car
   <div class="col-sm-7">
      <a class="navbar-brand text-center" href="/">
             <img src="images/logocar.png"  width="50%"alt="car-logo"  class="" alt="Car image is here">
-
+            
             <h3 style = "color:red">Query About Rent car</h3>
           
           </a>
   </div>
   <div class="col-sm-5">
-    <form>
-      <div class="form-group">
-    <label for="exampleFormControlTextarea1" style="font-size:20px">Enquiry</label><br>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+    <form class="form-signin"  method="POST" action="" class="col-xl-6" enctype="multipart/form-data">
+    <div class="form-group">
+    <label style="font-size:20px">Enquiry</label><br>
+    <textarea class="form-control" name="enquiry" rows="1"></textarea>
     <br>
-           <button class="btn btn-primary" type="submit">Submit </button>
+           <button class="btn btn-primary" name="save" type="submit">Submit </button>
 
     </form>
   </div>
 </div>
 </div>
-<!--script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
- -->
+
 </div>
 <div class="container-fluid footerr">
 </div>
@@ -111,7 +108,7 @@ Arena Car
     <div class="text-center">
         <a href="#" class="foota">About</a>
         <a href="#" class="foota"> Contact</a>
-          <a href="#" class="foota"> FAQ</a>
+        <a href="#" class="foota"> FAQ</a>
         <a href="#" class="foota">Help</a> <br>
         Copyright 2019. All Rights Reserved
     </div>

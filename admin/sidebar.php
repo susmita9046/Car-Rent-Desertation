@@ -60,9 +60,9 @@
                 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="enquiry.php">
+                    <a class="nav-link" href="contact.php">
                         <i class="fas fa-newspaper"></i>&nbsp;
-                        Enquiry
+                        Manage Contact
                     </a>
                 </li>
                   
