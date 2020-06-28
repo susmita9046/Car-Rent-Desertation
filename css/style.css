@@ -72,8 +72,8 @@ body
 
 .panel-yel
 {
-  background-color:#f89d13;
-  color:whitesmoke;
+  /*background-color:#f89d13;*/
+  color:Black;
 }
 
 
@@ -85,12 +85,15 @@ body
 
 .featuredimg{border-radius:10px;width:300px;}
 .learnmore{background:#1B120F;padding:5px 15px;border:none;border-radius:100px;color:#fff;}
-.foot{background: #3f4269 ;padding:40px;color:#fff;}
+.foot{background: #3f4269 ;padding:10px;color:#fff;
+ position: sticky;
+    bottom: 0;}
 .new{font-size:0.7em;background:#3D3836;padding:5px 10px;border-radius:100px;}
 
 .viewbtn{background: #8E44AD;color:#fff;font-weight:bold;border-radius:100px;border:none;padding:5px 15px;font-size:0.8em;}
 .search{background:#fff;padding:20px;box-shadow:0px 0px 5px #b5b5b5;border-radius:10px;}
 .foota{color:#fff;padding:5px 10px;transition:0.5s;}
+.foota:hover{color:#b6b6ba !important;text-decoration:none;}
 .infotext{padding:10px;font-size:0.9em;}
 .infoname{font-size:1em;font-weight:bold;}
 
@@ -120,9 +123,10 @@ margin-top:100px;
 margin-left:40px;
 }
 
+    
     .imagecolhome >img 
     {
-      width:400px;
+      width: 100%;
     margin-top:20px;
     margin-left:40px;
     }
@@ -223,11 +227,159 @@ dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
   padding: 13% 0; display: block; width: 100%;
 }
 .report div:hover{
-  background-color: tomato; transform : rotate(360deg);
+  background-color: whitesmoke;
 }
 
 .disabled{
   pointer-events: none;
   opacity: 0.5;
   /*background: #CCC;*/
+}
+
+.fa {
+ padding: 3px;
+    font-size: 16px !important;
+    width: 33px;  
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+/*.col-md-6.imagecolhome img {
+    width: 100%;
+}*/
+
+/*for faq page*/
+
+.p1 {
+    margin-left: 0px ;
+    font-size:13px;
+  color:grey;
+  
+    }
+    textarea.form-control {
+    HEIGHT: 200px;
+}
+  .form-control{
+  margin-left: 0px;
+  width:500px;
+  /*height: 200px !important;*/
+
+}
+@media only screen and (max-width: 600px) {
+.motto h2 {
+    font-size: 18px !important;
+}
+.col-md-6.start {
+    padding: 0px;
+}
+.slogon h3 {
+  font-size: 18px;
+}
+.imagecolhome >img {
+   
+    margin-left: 0px;
+}
+.loglog {
+    padding: 0px !important;
+}
+
+.map-div {
+    margin-top: 12px;
+    padding: 10px;
+    width: 100%;
+}
+
+.map-div iframe{
+  border: 0;
+    width: 100%;
+    height: 200px;
+}
+ .form-control{
+  margin-left: 0px;
+  width:100%;
+  /*height: 200px !important;*/
+
+}
+a#navbarDropdown {
+    margin-top: 10px;
+}
+
+}
+
+@media only screen and (max-width: 768px) {
+  .loglog {
+    padding: 0px !important;
+}
+.map-div iframe{
+    width: 100%;
+    height: 482px;}
+     .form-control{
+  margin-left: 0px;
+  width:100%;
+  /*height: 200px !important;*/
+
+}
+/*#Sidebar {
+  width:100%;
+}*/
+.col-md-6.detail-car-list {
+    padding: 38px !important;
+}
+}
+
+@media only screen and (min-width: 768px) {
+  .loglog {
+    padding: 0px !important;
+}
+.map-div iframe{
+    width: 100%;
+    height: 482px;}
+     .form-control{
+  margin-left: 0px;
+  width:100%;
+  /*height: 200px !important;*/
+
+}
+}
+
+.form-group {
+    margin-top: 20px;
+}
+a.navbar-brand.text-center {
+    margin-top: 20px;
+}
+
+textarea#opinion {
+    width: 100%;
+}
+li.nav-item.dropdown {
+    margin-top: -10px;
+}
+.dropdown-menu.show {
+    padding: 10px;
 }

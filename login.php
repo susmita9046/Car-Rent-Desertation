@@ -33,9 +33,13 @@
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="./css/fnavbar.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/fnavbar.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="js/menuToggle.js"></script>
 <script type="text/javascript">
         function validate(form){
             if(form.username.value == ''){
@@ -72,28 +76,8 @@
    </script>
 </head>
 <body>
-	 <div class="full-height" id="app">
- <nav class="navbar  navbar-expand-lg navbar-light bg-light">
-
-<a class="navbar-brand" href="/">
- <img src="images/logocar.png"  alt="car-logo" width="60" height="40" class="d-inline-block align-top" alt="">
-Arena Car
-</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
- <span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="nav navbar-nav ml-auto">
-            <li><a href="home.php" >HOME</a></li>
-            <li><a href="contact.php" >CONTACT</a></li>
-            <li><a href="faq.php" >FAQ</a></li>
-            <li><a href="login.php" ><i class="fas fa-door-open"></i> LOGIN</a></li>
-            <li><a href="register.php"> <i class="fas fa-user-edit"></i> REGISTER</a></li>
-        </ul>
-
-</div>
-</nav>
+	<div class="full-height" id="app">
+        <?php include 'navbar.php' ?>
 <BR>
 <BR>
 <BR>      
@@ -167,15 +151,7 @@ Arena Car
 </div>         
 <br>
 <br>
-<div class="container-fluid foot">
-    <div class="text-center">
-        <a href="#" class="foota">About</a>
-        <a href="#" class="foota"> Contact</a>
-          <a href="#" class="foota"> FAQ</a>
-        <a href="#" class="foota">Help</a> <br>
-        Copyright 2019. All Rights Reserved
-    </div>
-</div>
+<?php include 'footer.php' ?>
 
           
 </body>

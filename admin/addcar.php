@@ -67,7 +67,7 @@ session_start();
 
                             <label for="name" class="col-md-4 control-label">Select Model</label>
                                 <div class="col-md-6">
-                                    <select name="modelId" class="form-control grey-glow">
+                                    <select name="modelId" class="form-control grey-glow" required="">
                                         <?php 
                                         foreach ($models as $model) {?>
                                             <option value="<?php echo $model['id'];?>">
@@ -81,7 +81,7 @@ session_start();
                             <div class="form-group">
                                 <label class="col-md-4 control-label ">Cost ($)</label>
                                 <div class="col-md-6">
-                                    <input type="number" class="form-control grey-glow" name="cost" value="" />
+                                    <input type="number" class="form-control grey-glow" name="cost" value="" required="" />
                                 </div>
                             </div>
 
@@ -89,7 +89,7 @@ session_start();
                                 <label for="production_year" class="col-md-4 control-label">Production year</label>
 
                                 <div class="col-md-6">
-                                    <select name="production_year" class="form-control grey-glow">
+                                    <select name="production_year" class="form-control grey-glow" required="">
                                         <?php for($d = 2000; $d < date('Y'); $d++){?>
                                             <option value="<?php echo $d;?>"><?php echo $d;?></option>
                                         <?php }?>
@@ -100,7 +100,7 @@ session_start();
                                 <label for="cost" class="col-md-4 control-label">Plate number </label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control grey-glow" name="plate_number" value="" />
+                                    <input type="text" class="form-control grey-glow" name="plate_number" value="" required="" />
                                 </div>
                             </div>
 
@@ -108,7 +108,7 @@ session_start();
                                 <label for="picture" class="col-md-4 control-label">Add Car Photo</label>
 
                                 <div class="col-md-6">
-                                        <input type="file" class="form-control-file" id="car-img" name="image">
+                                        <input type="file" class="form-control-file" id="car-img" name="image" required="">
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@ session_start();
 
                                 <div class="col-md-6">
 
-                                        <select class="form-control grey-glow" name="fuelType" required>
+                                        <select class="form-control grey-glow" name="fuelType" required="">
                                             <option value="Petrol">Petrol</option>
                                             <option value="Diesel">Diesel</option>
                                             <option value="Electric">Electric</option>
@@ -132,7 +132,7 @@ session_start();
                                 <label for="engine_capacity" class="col-md-4 control-label">Engine capacity (cm<sup>3</sup>):</label>
 
                                 <div class="col-md-6">
-                                    <input type="number" class="form-control grey-glow" name="engine_capacity" value="">
+                                    <input type="number" class="form-control grey-glow" name="engine_capacity" value="" required="">
 
                                    
                                 </div>
@@ -142,7 +142,7 @@ session_start();
                                 <label for="seats" class="col-md-4 control-label">Seats</label>
 
                                 <div class="col-md-6">
-                                    <input  type="number" class="form-control grey-glow" name="seat" value=""/>
+                                    <input  type="number" class="form-control grey-glow" name="seat" value="" required="" />
 
                                   
                                 </div>
@@ -152,7 +152,7 @@ session_start();
                                 <label for="seats" class="col-md-4 control-label">Stock</label>
 
                                 <div class="col-md-6">
-                                    <input  type="number" class="form-control grey-glow" name="stock">
+                                    <input  type="number" class="form-control grey-glow" name="stock" required="">
 
                                   
                                 </div>
@@ -160,7 +160,7 @@ session_start();
 
                              <div class="form-group">
                                 <label for="status" class="col-md-1 control-label">Status</label> 
-                                <input  type="radio" name="status" value="Yes"/> Yes 
+                                <input  type="radio" name="status" value="Yes" checked="" /> Yes 
                                 <input  type="radio" name="status" value="No"/> No 
                             </div>
 

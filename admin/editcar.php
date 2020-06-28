@@ -17,6 +17,27 @@
     }
 
     if(isset($_POST['update'])){
+
+        $carId = $_POST['id'];
+        $car = $pdo->prepare("select * from car where id = '$carId'");
+        $car->execute();
+        $car = $car->fetch();
+        // die($_FILES['image']['name']);
+        if(!empty($_FILES['image']['name'])){
+            if(!empty($car['image'])){
+                unlink('uploads/' . $car['image']);
+            }
+
+            $image = $_FILES['image']['name'];
+            $tmp_loc = $_FILES['image']['tmp_name'];
+            $perm_loc = 'uploads/' . $image;
+            copy($tmp_loc, $perm_loc);
+        }
+        else{
+            $image = $car['image'];
+        }
+
+
         $stmt = $pdo->prepare("UPDATE car SET 
         						modelId = :modelId, 
         						cost = :cost, 
@@ -26,12 +47,14 @@
         						engine_capacity = :engine_capacity, 
         						seat = :seat, 
                                 stock =:stock,
-        						status = :status 
+        						status = :status,
+                                image = :image 
         					WHERE 
         					id = :id"
         				);
 
         unset($_POST['update']);
+        $_POST['image'] = $image;
         // echo '<pre>'; print_r($_POST); die();
         $stmt->execute($_POST);
         header('Location:car.php?success=Car Updated Successfully');
@@ -116,7 +139,8 @@
                                 <label for="picture" class="col-md-4 control-label">Add Car Photo</label>
 
                                 <div class="col-md-6">
-                                        <input type="file" class="form-control-file" id="car-img" name="image">
+                                    <img src="uploads/<?php echo $row['image'];?>">
+                                    <input type="file" class="form-control-file" id="car-img" name="image">
                                 </div>
                             </div>
 

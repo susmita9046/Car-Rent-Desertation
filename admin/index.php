@@ -46,7 +46,7 @@
     <body>
         <?php require 'sidebar.php'; ?>
 
-            <div class="col-md-9">
+            <div class="col-sm-12 col-12 col-md-9">
                 <h3 class="report-title">Admin Content Detail</h3>
                 <div class="report">
                     <?php if($user['type'] == 1){?>

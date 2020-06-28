@@ -85,7 +85,7 @@
 
                                     <div class="form-group">
                                         <div class="col-md-6">
-                                            <input type="submit" class="form-control grey-glow" name="save" 
+                                            <input type="submit" class=" btn-primary form-control grey-glow" name="save" 
                                             value="Save" />
                                         </div>
                                     </div>

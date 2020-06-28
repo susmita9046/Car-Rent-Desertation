@@ -65,6 +65,12 @@
                         Manage Contact
                     </a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="viewfeedback.php">
+                        <i class="fas fa-newspaper"></i>&nbsp;
+                        Manage feedback
+                    </a>
+                </li>
                   
                 <li>
                  

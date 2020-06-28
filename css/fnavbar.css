@@ -41,7 +41,8 @@
         .nav > li >a:hover{
            
             background-color:#3f4269  !important;
-            color:#F89D13 !important;
+            text-decoration: none;
+            color: #b6b6ba !important;
         }
         .nav > li >a{
            

@@ -32,9 +32,14 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../css/style.css"> 
+  <link rel="stylesheet" type="text/css" href="../css/fnavbar.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="js/menuToggle.js"></script>
 <script type="text/javascript">
         function validate(form){
            
@@ -54,90 +59,12 @@
 <style type="text/css">
 		
 		
-        .full-height {
-            height: 100vh;
-            
-        }
-        .border{
-            border-color:rgba(99, 107, 111, 0.3) !important;
-            border-width: 0 0 0px;
-        }
-        .grey-glow:focus{
-            border-color: #636F6B;
-            outline: 0;
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(208, 210, 212);
-        }
-        .grey-button{
-            color: #636F6B;
-            background-color: white;
-            border-color: rgba(99, 107, 111, 0.3);
-        }
-        
-
-        a{
-            color:  whitesmoke !important;
-        }
-        
-        .li-padding{
-            padding-top: 10px;
-        }
-        .li-padding li{
-
-            padding-left: 20px;
-        }
-        h1{
-            color:#636F6B;
-        }
-        .logout{
-            padding-left:0px !important;
-        }
-        .nav > li >a:hover{
-           
-            background-color:#871C13 !important;
-            color:#F89D13 !important;
-        }
-        .nav > li >a{
-           
-          
-           
-       }
-        .navbar
-        {
-           background-color: #3f4269 !important;
-           color:red;
-        }
-        .navbar-brand
-        {
-            color:whitesmoke !important;
-            font-family:"Brush Script MT", cursive;
-            font-size:30px !important;
-        }
-        .dropdown-menu
-        {
-            background-color:#273746;
-        }
-        .nav > li >a {
-    margin-left: 45px;
-}
     </style>
 	
 </head>
 <body>
 	 <div class="full-height" id="app">
- <nav class="navbar  navbar-expand-lg navbar-light bg-light">
-
-<a class="navbar-brand" href="/">
- <img src="images/logocar.png"  alt="car-logo" width="60" height="40" class="d-inline-block align-top" alt="">
-Arena Car
-</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
- <span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
-</div>
-</nav>
+ <?php include 'admin-navbar.php' ?>
             <BR>
             <BR>
             <BR>      
@@ -145,7 +72,7 @@ Arena Car
        <div class="container">
     <div class="row">
 
-        <div class="col-md-12 login-form"> 
+        <div class="col-md-8 login-form mr-auto ml-auto"> 
             <h1 class = "text-center" style = "">Login</h1>
             <hr>
         <div class = "loglog" >
@@ -199,7 +126,7 @@ Arena Car
 <br>
 <br>
 
-<div class="container-fluid foot">
+<!-- <div class="container-fluid footer-admin ">
     <div class="text-center">
         <a href="#" class="foota">About</a>
         <a href="#" class="foota"> Contact</a>
@@ -207,7 +134,9 @@ Arena Car
         <a href="#" class="foota">Help</a> <br>
         Copyright 2019. All Rights Reserved
     </div>
-</div>
+</div> -->
+
+<?php include '../footer.php' ?>
 
           
 </body>

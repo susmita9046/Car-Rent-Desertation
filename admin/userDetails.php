@@ -14,16 +14,38 @@
     }
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Details User</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <style type="text/css"></style>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+
+<script>       
+            function myDeleteFunction(a){
+                var userID = a;
+                console.log(userID);
+                $('#delete_user_userDetails').attr('data-id', userID); //set the data attribute on the modal button
+            };
+
+            // function myDeleteFunction2(){
+            //     var ID = $('#delete_user_userDetails').attr('data-id');
+            //     console.log(ID);
+                                
+              
+            // };
+
+</script>
+
 </head>
 <body>
+
 <div class="container">
     <?php require 'sidebar.php';?>
 <div id="mid-content" class="col-md-9">
@@ -60,7 +82,15 @@
                                 </td>
                                 
                                 <td>
-                                    <a href="userDetails.php?did=<?php echo $user['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
+                                    
+                                     <!-- button type="button" class="btn btn-sm btn-danger delete-user-userDetails-modal" data-toggle="modal" data-target="#user_delete_modal_<?php echo $user['id'];?>">
+                                      <i class="fa fa-trash"></i>Delete
+                                    </button> -->
+
+                                     <button type="button" class="btn btn-sm btn-danger delete-user-userDetails-modal"  data-target="#user_delete_modal" data-toggle="modal"  onclick="myDeleteFunction(<?php echo $user['id'];?>)" data-id="<?php echo $user['id'];?>">
+                                      <i class="fa fa-trash"></i>Delete
+                                    </button>
+                                    
                                     
                                 </td>
                             </tr>
@@ -71,5 +101,37 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="user_delete_modal" tabindex="-1" role="dialog" aria-labelledby="delete_user_modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="delete_user_modal">Modal title</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete?
+      </div>
+      <div class="modal-footer">
+        <!-- <a href="userDetails.php?did=<?php echo $user['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a> -->
+        <button onclick="myDeleteFunction2()" class="btn btn-sm btn-icon btn-danger" id="delete_user_userDetails"><i class="fa fa-trash"></i>Yes</button>
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">No</a>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
 </body>
 </html>
