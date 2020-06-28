@@ -7,7 +7,12 @@
     require '../db/connect.php';
     $contac = $pdo->prepare("select * from contact");
     $contac->execute();
-
+    
+    if(isset($_GET['did'])){
+        $stmt = $pdo->prepare('DELETE FROM contact WHERE id = :did');
+        $stmt->execute($_GET);
+        header('Location:contact.php?success=contact Deletted Successfully');
+    }
 
  ?> 
 
@@ -33,7 +38,16 @@
         <div class="col-md-12">
             <div class="tab-content" id="myTabContent">
                 <div class=" col-md-5 form-group ml-auto" style="margin-left: 0 !important;">
+                    
                 <h4>Manage Contact</h4>
+                <?php if(isset($_GET['success'])){?>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <?php echo $_GET['success']; ?>
+                </div>
+                <?php }?>  
                 </div>
                 <table class="table table-hover">
                             <thead>
@@ -57,6 +71,8 @@
                                     <td><?php echo $contacts['number'] ?></td>
                                     <td><?php echo $contacts['subject'] ?></td>
                                     <td><?php echo $contacts['message'] ?></td>
+                                    <td>
+                                        <a href="contact.php?did=<?php echo $contacts['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
                                 </tr>
                                  <?php } ?>
                             </tbody>

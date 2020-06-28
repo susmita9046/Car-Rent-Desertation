@@ -37,7 +37,13 @@ if(isset($_POST['save'])){
 <div class="container">
     <div class="row">     
         <div class="col-lg-6 col-md-8 col-sm-12 login-form"> 
+             <?php
+                 if(isset($_GET['success'])){
+                  echo '<h4 style="color:green">' . $_GET['success'] .'</h4>';
+                      }
+            ?>
             <h1 class = "text-center">Contact Us</h1>
+
             <hr>
         <div class = "loglog" >
                     <form class="form-horizontal" method="POST" action="" onsubmit="return validate(this)">
