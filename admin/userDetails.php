@@ -34,13 +34,6 @@
                 $('#delete_user_userDetails').attr('data-id', userID); //set the data attribute on the modal button
             };
 
-            // function myDeleteFunction2(){
-            //     var ID = $('#delete_user_userDetails').attr('data-id');
-            //     console.log(ID);
-                                
-              
-            // };
-
 </script>
 
 </head>
@@ -82,14 +75,10 @@
                                 </td>
                                 
                                 <td>
-                                    
-                                     <!-- button type="button" class="btn btn-sm btn-danger delete-user-userDetails-modal" data-toggle="modal" data-target="#user_delete_modal_<?php echo $user['id'];?>">
-                                      <i class="fa fa-trash"></i>Delete
-                                    </button> -->
-
-                                     <button type="button" class="btn btn-sm btn-danger delete-user-userDetails-modal"  data-target="#user_delete_modal" data-toggle="modal"  onclick="myDeleteFunction(<?php echo $user['id'];?>)" data-id="<?php echo $user['id'];?>">
-                                      <i class="fa fa-trash"></i>Delete
+                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete_user_modal">
+                                      <i class="fa fa-trash"></i>
                                     </button>
+                                  
                                     
                                     
                                 </td>
@@ -104,7 +93,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="user_delete_modal" tabindex="-1" role="dialog" aria-labelledby="delete_user_modal" aria-hidden="true">
+<div class="modal fade" id="delete_user_modal" tabindex="-1" role="dialog" aria-labelledby="delete_user_modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -117,8 +106,8 @@
         Are you sure you want to delete?
       </div>
       <div class="modal-footer">
-        <!-- <a href="userDetails.php?did=<?php echo $user['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a> -->
-        <button onclick="myDeleteFunction2()" class="btn btn-sm btn-icon btn-danger" id="delete_user_userDetails"><i class="fa fa-trash"></i>Yes</button>
+        <a href="userDetails.php?did=<?php echo $user['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i>Yes</a>
+       
         <a type="button" class="btn btn-secondary" data-dismiss="modal">No</a>
   
       </div>
