@@ -39,7 +39,7 @@
 <div class="container">
 
 <?php require 'sidebar.php'; ?>
-    <div id="mid-content" style="padding:2% 0%">
+    <div id="mid-content" class="col-md-9" style="padding:2% 0%">
         <div class="container">
             <div class="col-md-12">
                 <div class="tab-content" id="myTabContent">

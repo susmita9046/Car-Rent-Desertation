@@ -125,11 +125,14 @@
                                         <td><?php echo $car['seat'] ?></td>
                                         <td><?php echo $car['stock'] ?></td>
                                         <td><?php echo $car['status'] ?></td>
-                                        <td></td>
+                                    
                                         <td>
-                                            <a href="editcar.php?eid=<?php echo $car['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-edit"></i></a>
+                                           
                                             
-                                            <a href="car.php?did=<?php echo $car['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
+                                            <a href="editcar.php?eid=<?php echo $car['id'];?>"  class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+
+                                            <a href="car.php?did=<?php echo $car['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
+
                                         </td>
                                     </tr>
                                 <?php }?>

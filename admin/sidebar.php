@@ -71,6 +71,12 @@
                         Manage feedback
                     </a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="viewfaq.php">
+                        <i class="fas fa-newspaper"></i>&nbsp;
+                        Manage FAQ
+                    </a>
+                </li>
                   
                 <li>
                  

@@ -22,7 +22,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Enquiry</title>
+    <title>Feedback</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">         
 
     
@@ -49,7 +49,7 @@
                     <?php echo $_GET['success']; ?>
                 </div>
                 <?php }?>
-                <h4>Manage Contact</h4>
+                <h4>Manage Feedback</h4>
                 </div>
                 <table class="table table-hover">
                             <thead>
@@ -78,7 +78,7 @@
                                     <td><?php echo $faqq['service'] ?></td>
                                     <td><?php echo $faqq['feedback'] ?></td>
                                     <td>
-                                         <a href="viewfeedback.php?did=<?php echo $faqq['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
+                                         <a href="viewfeedback.php?did=<?php echo $faqq['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
                                 </tr>
                                  <?php } ?>
                             </tbody>

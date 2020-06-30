@@ -56,7 +56,7 @@
 
                                         <div class="col-md-6">
                                         
-                                            <input type="text" class="form-control grey-glow" name="username" value="" autofocus/>
+                                            <input type="text" class="form-control grey-glow" name="username" value="" required="" autofocus/>
 
 
                     
@@ -67,7 +67,7 @@
                                         <label for="model" class="col-md-4 control-label ">Email</label>
 
                                         <div class="col-md-6">
-                                            <input id="model" type="text" class="form-control grey-glow" name="email" value="" />
+                                            <input id="model" type="text" class="form-control grey-glow" name="email" value="" required=""/>
 
                                 
                                         </div>
@@ -77,7 +77,7 @@
                                         <label for="production-year" class="col-md-4 control-label">Password</label>
 
                                         <div class="col-md-6">
-                                            <input type="password" class="form-control grey-glow" name="password" value=""/>
+                                            <input type="password" class="form-control grey-glow" name="password" value="" required=""/>
                                         
                                         </div>
                                     </div>

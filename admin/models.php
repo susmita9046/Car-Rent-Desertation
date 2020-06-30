@@ -70,9 +70,12 @@
                                 <td><?php echo $model['name'] ?></td>
                                 <td><?php echo $model['username'];?></td>
                                 <td>
-                                    <a href="editmodel.php?eid=<?php echo $model['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-edit"></i></a>
                                     
-                                    <a href="models.php?did=<?php echo $model['id'];?>" cl="" ass="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
+
+                                    <a href="editmodel.php?eid=<?php echo $model['id'];?>"  class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+
+                                    
+                                    <a href="models.php?did=<?php echo $model['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

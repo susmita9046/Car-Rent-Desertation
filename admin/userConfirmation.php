@@ -120,8 +120,11 @@
                             }?>
                             <br><br>
                             <!-- search  -->
+                            <h4>Manage Booking</h4>
                             <div class=" col-md-5 form-group ml-auto">
+
                  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+
              </div>
                             <table class="table table-hover">
                                 <thead>

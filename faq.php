@@ -6,12 +6,12 @@ $enquiry->execute();
 
 if(isset($_POST['save'])){
         $stmt = $pdo->prepare("insert into 
-                faq(enquiry) values(:enquiry)");
+                faq(name,enquiry,email,phone_number) values(:name,:enquiry,:email,:phone_number)");
        
         unset($_POST['save']);
           // echo '<pre>'; print_r($_POST); die();
         $stmt->execute($_POST);
-        header('Location:faq.php?success=enquiry Added Successfully');
+        header('Location:faq.php?success=Faq Added Successfully');
     }
 ?>
 
@@ -49,16 +49,38 @@ if(isset($_POST['save'])){
           </a>
   </div>
   <div class="col-sm-12 col-md-6">
-   
-    <form class="form-signin"  method="POST" action="" class="col-xl-6" enctype="multipart/form-data">
-    <div class="form-group">
-    <label style="font-size:20px">Enquiry</label><br>
+  <form class="form-signin"  method="POST" action="" class="col-xl-6" enctype="multipart/form-data">
+  <div class="form-group">
+    <label style="font-size:20px">FAQ FORM</label><br>
+      <div class="form-group row">
+          <label for="email" class="col-md-4 control-label">UserName</label>
+            <div class="col-md-6">
+              <input type="name" class="form-control" name="name" value="" required autofocus>
+            </div>
+
+      </div>
+      <div class="form-group row">
+          <label for="email" class="col-md-4 control-label">email</label>
+            <div class="col-md-6">
+              <input type="email" class="form-control" name="email" value="" required autofocus>
+            </div>
+
+      </div>
+      <div class="form-group row">
+          <label for="email" class="col-md-4 control-label">Phone Number</label>
+            <div class="col-md-6">
+              <input type="name" class="form-control" name="phone_number" value="" required autofocus>
+            </div>
+
+      </div>
+    
     <p class="p1">
-    Message your Queries Here
+    Message your FAQ here
     </p>
+
     <textarea class="form-control" name="enquiry" rows="1"></textarea>
     <br>
-           <button class="btn btn-primary" name="save" type="submit">Submit </button>
+      <button class="btn btn-primary" name="save" type="submit" required autofocus>Submit </button>
 
     </form>
   </div>

@@ -5,13 +5,13 @@
         header('Location:login.php');
     }
     require '../db/connect.php';
-    $contac = $pdo->prepare("select * from contact");
-    $contac->execute();
+    $faq = $pdo->prepare("select * from faq");
+    $faq->execute();
     
     if(isset($_GET['did'])){
-        $stmt = $pdo->prepare('DELETE FROM contact WHERE id = :did');
+        $stmt = $pdo->prepare('DELETE FROM faq WHERE id = :did');
         $stmt->execute($_GET);
-        header('Location:contact.php?success=contact Deletted Successfully');
+        header('Location:viewfaq.php?success=faq Deletted Successfully');
     }
 
  ?> 
@@ -39,7 +39,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class=" col-md-5 form-group ml-auto" style="margin-left: 0 !important;">
                     
-                <h4>Manage Contact</h4>
+                <h4>Manage Faq</h4>
                 <?php if(isset($_GET['success'])){?>
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -56,24 +56,22 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone Number</th>
-                                    <th>Subject</th>
                                     <th>Message</th>
-                                    <th>Status</th>
+                                    <th>Action</th>
                                    
                                 </tr>
                             </thead>
                                 <?php $i = 1; ?>
-                                <?php foreach ($contac as $contacts) {?>
+                                <?php foreach ($faq as $Faq) {?>
                                 <tr>
                                     <td><?php echo $i++; ?></td>
-                                    <td><?php echo $contacts['name'] ?></td>
-                                    <td><?php echo $contacts['email'] ?></td>
-                                    <td><?php echo $contacts['number'] ?></td>
-                                    <td><?php echo $contacts['subject'] ?></td>
-                                    <td><?php echo $contacts['message'] ?></td>
-                                    <td>
+                                    <td><?php echo $Faq['name'] ?></td>
+                                    <td><?php echo $Faq['email'] ?></td>
+                                    <td><?php echo $Faq['phone_number'] ?></td>
+                                    <td><?php echo $Faq['enquiry'] ?></td>
                                     
-                                        <a href="contact.php?did=<?php echo $contacts['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
+                                    <td>
+                                        <a href="viewfaq.php?did=<?php echo $Faq['id'];?>" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
                                 </tr>
                                  <?php } ?>
                             </tbody>

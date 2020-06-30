@@ -42,14 +42,19 @@
 <div class="container">
     <?php require 'sidebar.php';?>
 <div id="mid-content" class="col-md-9">
+    <h4>Manage UserDetails</h4>
     <div class ="col-md-5 form-group ml-auto">
+
       <form method="post" action="">
+
         <input class="form-control" type="text" name="keyword" placeholder="Search Here">
       </form>
     </div>
     <div class="container">
         <div class="col-md-12">
+
             <div class="tab-content" id="myTabContent">
+
                 <div class=" col-md-5 form-group ml-auto" style="margin-left: 0 !important;">
                     
                 </div>
