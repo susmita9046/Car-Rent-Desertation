@@ -66,9 +66,7 @@
                             <td><?php echo 'Pending';?></td>
                             <td>
                                 <a href="confirmRent.php?did=<?php echo $rent['id'] ?>">Cancel</a>
-                                <a href="paypal.php?id=<?php echo $rent['id'] ?>">Pay By Paypal
-                                
-                                </a>
+                                <a href="paypal.php?id=<?php echo $rent['id'] ?>">Pay By Paypal</a>
                             </td>                                  
                         </tr>
                     <?php } ?>
@@ -98,8 +96,7 @@
                             <td><?php echo $rent['cost'] ?></td>
                             <td><?php echo 'Confirmed';?></td>
                             <td>
-                                <a href="paypal.php?id=<?php echo $rent['id'] ?>">Pay By Paypal</a>
-                                 
+                                <a href="paypal.php?id=<?php echo $rent['id'] ?>">Pay By Paypal</a> 
                             </td>                                  
                         </tr>
                     <?php } ?>

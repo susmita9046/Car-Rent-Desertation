@@ -37,7 +37,7 @@ if(isset($_POST['Submit'])){
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Register Page</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -206,21 +206,14 @@ if(isset($_POST['Submit'])){
                                    Register
                                     <?php if(!empty($msg)) echo $msg; ?>
         </button>
-
-            <a href="" class="btn btn-danger btn-block"><i class="fab fa-google-plus-g"></i> Register With Google</a>
     </div>
 </div>
 <div class="form-group row mb-0 text-center">
     <div class="col-md-6 offset-md-4">
-        <h6 class = "text-center">Already a user? <a href = "" class = "text-primary">Login</a></h6>
+        <h6 class = "text-center">Already a user? <a href = "login.php" class = "text-primary">Login</a></h6>
 </div>
 </div>
-<div class="form-group row mb-0 text-center">
-    <div class="col-md-6 offset-md-2">
-        <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
-        </div>
-    </div>
-</div>  
+ 
 </form>
                 </div>
             </div>

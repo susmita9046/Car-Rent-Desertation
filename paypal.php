@@ -1,33 +1,71 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['UserId'])){
+        header('Location:login.php');
+    }
+    require 'db/connect.php';
+?> 
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Paypal</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<style type="text/css">
+    <title>Paypal Checkout Page</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fnavbar.css">
+    <link rel="stylesheet" type="text/css" href="css/styll.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/menuToggle.js"></script>
+    <style type="text/css">
+    </style>
+
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ATAaOooFljs5f-JluMDCNkxxCFIzofEdZ_fvgP75PTBsRVO_ycqmvkkz1BvrPy9yrmiht5oXVmdM5I4V">
+    </script>
+
 </head>
 <body>
-<div class="container">
-<div class="row">
+<div class="full-height" id="app">
+<?php include 'user-nav-bar.php' ?>
+ <div class="container">
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="susmitakarki634@gmail.com">
-<input type="hidden" name="lc" value="US">
-<input type="hidden" name="item_name" value="Car Rent">
-<input type="hidden" name="item_number" value="Car Rent">
-<input type="hidden" name="amount" value="1000.00">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar table-responsive">
+        <div id="paypal-button-container"></div>
+    </div>
+    <script type="text/javascript">
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+            // This function sets up the details of the transaction, including the amount and line item details.
+            return actions.order.create({
+                purchase_units: [{
+                amount: {
+                    value: '112.45'
+                }
+                }]
+            });
+            },
+            onApprove: function(data, actions) {
+            // This function captures the funds from the transaction.
+            return actions.order.capture().then(function(details) {
+                // This function shows a transaction success message to your buyer.
+                alert('Transaction completed by ' + details.payer.name.given_name);
+            });
+            }
+        }).render('#paypal-button-container');
+        //This function displays Smart Payment Buttons on your web page.
+    </script>
+
 
 </div>
 </div>
 
-</body>
+
+
+   
+
+<?php include 'footer.php' ?>
+    </body>
 </html>
