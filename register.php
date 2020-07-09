@@ -4,13 +4,27 @@ require 'db/connect.php';
 $error='';
 if(isset($_POST['Submit'])){
     
+    if($_POST['username'] == ''){
+        $usernameError = 'USername can not be empty';
+    }
+
     $user = $pdo->prepare('select * from user where email = :email');
     $criteria = [
         'email' => $_POST['email']
     ];
     $user->execute($criteria);
+
+    $userByCN = $pdo->prepare('select * from user where citizenship_no = :citizenship_no');
+    $criteria = [
+        'citizenship_no' => $_POST['citizenship_no']
+    ];
+    $userByCN->execute($criteria);
+
     if($user->rowCount() > 0){
         $emailError = 'Supplied email already exists';
+    }
+    else if($userByCN->rowCount() > 0){
+        $citizenshipNumbernError = 'Supplied Citizenship Number already exists';
     }
     else{
         $regis = $pdo->prepare("INSERT INTO user(username,email,password,citizenship_no,location,Phone_Number,type) VALUES (:username,:email,:password,:citizenship_no,:location,:Phone_Number,:type)");
@@ -51,77 +65,61 @@ if(isset($_POST['Submit'])){
         color: red;
     }
 </style>
-   <script type="text/javascript">
-        function validate(form){
-            var letters = /^[A-Za-z]+$/;
-            if(form.username.value == '' || !form.username.value.match(letters)){
-                // document.getElementById('error-name').innerHTML = 'Invalid Name';
-                form.username.focus();
-                document.getElementById('username-error').innerHTML = 'Invalid name';
-                return false;
-            }
 
-            if(form.email.value == ''){
-                // alert('Please enter email');
-                document.getElementById('email-error').innerHTML = 'Please enter email';
-                form.email.focus();
-                return false;
-            }
-            if(form.password.value == ''){
-                // alert('Please enter password');
-                document.getElementById('password-error').innerHTML = 'Please enter password';
-                form.password.focus();
-                return false;
-            }
-            if(form.password_confirm.value == ''){
-                // alert('Please enter password again');
-                document.getElementById('password_confirm-error').innerHTML = 'Please enter password';
-                form.password_confirm.focus();
-                return false;
-            }
-            if(form.password.value != form.password_confirm.value){
-                // alert('Password and confirm password do not match');
-                document.getElementById('pw-error').innerHTML = 'Please enter correct password ';
-                form.password_confirm.focus();
-                return false;
-            }  
-            if(form.password.value.length < 6 || form.password_confirm.value.length < 6){
-                document.getElementById('pw-error').innerHTML = 'Password must be atleaset 6 characters';
-                form.password_confirm.focus();
-                return false;
-            }
-            // if(form.citizenship_no.value == ''){
-            //     // alert('Please enter citizenship_no');
-            //     document.getElementById('Citizenship-error').innerHTML = 'Please enter Citizenship no';
-            //     form.citizenship_no.focus();
-            //     return false;
-            // }
-
-            var number = /^[0-9]+$/;
-             if(form.citizenship_no.value == '' || !form.citizenship_no.value.match(number) || form.citizenship_no.value.length != 5){
-            // if(!form.citizenship_no.value.match(number)){
-                // document.getElementById('error-name').innerHTML = 'Invalid Name';
-                form.citizenship_no.focus();
-                document.getElementById('Citizenship-error').innerHTML = 'Invalid citizenship number';
-                return false;
-            }
-
-            if(form.location.value == ''){
-                // alert('Please enter citizenship_no');
-                document.getElementById('location-error').innerHTML = 'Please enter Citizenship no';
-                form.location.focus();
-                return false;
-            }
-
-            var number = /^[0-9]+$/;
-            if(form.Phone_Number.value == '' || !form.Phone_Number.value.match(number) || form.Phone_Number.value.length != 10){
-                // document.getElementById('error-name').innerHTML = 'Invalid Name';
-                form.Phone_Number.focus();
-                document.getElementById('Phone-error').innerHTML = 'Invalid Phone number';
-                return false;
-            }
+<script type="text/javascript">
+    function validate(form){
+        var check = true;
+        var letters = /^[ A-Za-z]+$/;
+        if(form.username.value == '' || !form.username.value.match(letters)){
+            // document.getElementById('error-name').innerHTML = 'Invalid Name';
+            document.getElementById('username-error').innerHTML = 'Invalid name';
+            check = false;
         }
-   </script>
+
+        if(form.email.value == ''){
+            // alert('Please enter email');
+            document.getElementById('email-error').innerHTML = 'Please enter email';
+            check = false;
+        }
+        if(form.password.value == ''){
+            // alert('Please enter password');
+            document.getElementById('password-error').innerHTML = 'Please enter password';
+            check = false;
+        }
+        if(form.password_confirm.value == ''){
+            // alert('Please enter password again');
+            document.getElementById('pw-error').innerHTML = 'Please enter password';
+            check = false;
+        }
+        if(form.password.value != form.password_confirm.value){
+            // alert('Password and confirm password do not match');
+            document.getElementById('pw-error').innerHTML = 'Please enter correct password ';
+            check = false;
+        }  
+        if(form.password.value.length < 6 || form.password_confirm.value.length < 6){
+            document.getElementById('pw-error').innerHTML = 'Password must be atleaset 6 characters';
+            check = false;
+        }
+        var number = /^[0-9]+$/;
+         if(form.citizenship_no.value == '' || !form.citizenship_no.value.match(number) || form.citizenship_no.value.length != 6){
+            document.getElementById('Citizenship-error').innerHTML = 'Invalid citizenship number';
+            check = false;
+        }
+
+        if(form.location.value == ''){
+            document.getElementById('location-error').innerHTML = 'Please enter Citizenship no';
+            check = false;
+        }
+
+        var number = /^[0-9]+$/;
+        if(form.Phone_Number.value == '' || !form.Phone_Number.value.match(number) || form.Phone_Number.value.length != 10){
+            // document.getElementById('error-name').innerHTML = 'Invalid Name';
+            document.getElementById('Phone-error').innerHTML = 'Invalid Phone number';
+            check = false;
+        }
+        return  check;
+    }
+</script>
 
 </head>
 <body>
@@ -148,6 +146,9 @@ if(isset($_POST['Submit'])){
 <label for="username" class="col-md-4 col-form-label text-md-right">Name</label>
     <div class="col-md-6">
         <input id="username" type="text" class="form-control" name="username" value=""  autocomplete="name" autofocus>
+        <span id="username-error" class="red">
+            <?php if(!empty($usernameError)) echo $usernameError; ?>
+        </span>
         <span id="username-error" class="red"></span>
     </div>
 </div>
@@ -180,6 +181,9 @@ if(isset($_POST['Submit'])){
     <label for="citizenship_no" class="col-md-4 col-form-label text-md-right">Citizenship Number</label>
 <div class="col-md-6">
     <input id="citizenship_no" type="text" class="form-control" name="citizenship_no" >
+    <span id="email-error" class="red">
+        <?php if(!empty($citizenshipNumbernError)) echo $citizenshipNumbernError; ?>
+    </span>
 </div>
  <span id="Citizenship-error" class="red"></span>
 </div>

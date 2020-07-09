@@ -22,7 +22,7 @@
         $curDate = date('Y-m-d');
         // die($curDate);
         if($startDate < $curDate){
-            $err .= '<li>Start date is past date</li>';
+            $err .= '<li>You have selected the prevoius date,please select current date</li>';
         }
         if($endDate < $curDate){
             $err .= '<li>End date is past date</li>';
@@ -67,12 +67,12 @@
             var endDate = new Date(end);
 
             if(startDate >= endDate){
-                alert('Start Date is greater or equal to end date');
+                alert('You have selected end date less than start date,please select the end date more than start date');
                 return false;
             }
             curDate = new Date();
             if(startDate < curDate){
-                alert('Start date is past date');
+                alert('You have selected the prevoius date,please select current date');
                     return false;
             }
             if(endDate < curDate){

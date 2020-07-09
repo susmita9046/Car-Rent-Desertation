@@ -1,29 +1,21 @@
 <?php
     session_start();
-
     if(!isset($_SESSION['aUserId'])){
         header('Location:login.php');
     }
-
     require '../db/connect.php';
-    //  $car = $pdo->prepare("select * from car");
-    // $car->execute();
-
     $cars = $pdo->prepare("select car.*, model.name as modelName, user.username
                             from car 
                             JOIN model ON car.modelId = model.id
                             JOIN user on car.userId = user.id");
     $cars->execute();
-
-     // join user on car.userId = user.id
     if(isset($_GET['did'])){
         $stmt = $pdo->prepare('DELETE FROM car WHERE id = :did');
         $stmt->execute($_GET);
         header('Location:car.php?success=Car Deletted Successfully');
     }
-     
-     if(isset($_POST['keyword'])){
-      $cars = $pdo->prepare("SELECT car.*, model.name as modelName, user.username 
+    if(isset($_POST['keyword'])){
+    $cars = $pdo->prepare("SELECT car.*, model.name as modelName, user.username 
                               FROM car 
                               JOIN model ON car.modelId = model.id 
                               JOIN user on car.userId = user.id

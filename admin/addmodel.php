@@ -33,12 +33,6 @@
                 form.name.focus();
                 return false;
             }
-            // if(form.save.value == ''){
-            //     alert('Please enter the model name');
-            //     form.save.focus();
-            //     return false;
-            // }
-            
         }
 </script>       
 </head>
