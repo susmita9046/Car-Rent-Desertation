@@ -30,6 +30,13 @@
     $contacts->execute();
     $ContactCount = $contacts->rowCount();
 
+    $feedback = $pdo->prepare('select * from feedbacks');
+    $feedback->execute();
+    $feedbackCount = $feedback->rowCount();
+
+    $faqs = $pdo->prepare('select * from faq');
+    $faqs->execute();
+    $faqCount = $faqs->rowCount();
 ?>
     <!DOCTYPE html>
     <html>
@@ -87,6 +94,19 @@
                             <span>Contact :<?php echo $ContactCount; ?></span>
                         </a>
                     </div>
+                    <div>
+                        <a href="faq.php">
+                            <i class="fas fas fa-home"></i><br>
+                            <span>faq :<?php echo $faqCount; ?></span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="viewfeedback.php">
+                            <i class="fas fas fa-home"></i><br>
+                            <span>feedback :<?php echo $feedbackCount; ?></span>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>

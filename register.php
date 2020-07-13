@@ -132,7 +132,7 @@ if(isset($_POST['Submit'])){
 <div class="container">
 <div class="row">
         <div class = "col-md-6">
-            <a class="navbar-brand text-center" href="/">
+            <a class="navbar-brand text-center">
             <img src="images/logocar.png"  width="100%"alt="car-logo"  class="" alt="Car image is here">
             <h3 style = "color:red">Register to hire a car</h3>
             </a>

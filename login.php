@@ -84,7 +84,7 @@
 <div class="container">
     <div class="row">
         <div class = "col-md-6">
-            <a class="navbar-brand text-center" href="/">
+            <a class="navbar-brand text-center" >
             <img src="images/logocar.png"  width="100%"alt="car-logo"  class="" alt="Car image is here">
 
             <h3 style = "color:red">Login to hire a car</h3>
@@ -133,8 +133,7 @@
                                 <button type="submit" class="btn btn-primary" name="login">
                                 <i class="fas fa-door-open"></i> Login
                                 </button>
-                                <a href="" class="btn btn-danger"><i class="fab fa-google-plus-g"></i> Login With Google</a>
-
+                               
                                 <a class="btn btn-link text-secondary" href=""> 
                                     Forgot Your Password?
                                 </a>
